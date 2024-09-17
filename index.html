@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #e6f2ff; /* 淡藍色背景 */
+            background-color: #e6f2ff;
         }
         .container {
             display: flex;
@@ -43,23 +43,19 @@
             gap: 10px;
             margin-bottom: 20px;
         }
-        .button {
-            padding: 10px;
-            cursor: pointer;
-            border: none;
-            color: white;
-            flex: 1;
-            min-width: 80px;
-            text-align: center;
+        .editable-button {
+            width: 120px;
         }
         .gray-btn {
             background-color: #ccc;
         }
         .green-btn {
             background-color: #4CAF50;
+            color: white;
         }
         .red-btn {
             background-color: #f44336;
+            color: white;
         }
         .seat-btn {
             padding: 10px;
@@ -99,82 +95,63 @@
             z-index: 1;
         }
         .download-btn {
-            margin-left: 10px;
-            padding: 5px 10px;
-            background-color: #007bff;
+            padding: 10px 20px;
+            background-color: #4CAF50;
             color: white;
             border: none;
             cursor: pointer;
-            font-size: 14px;
-        }
-        .date-display {
-            margin-left: 10px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        .table-container {
-            position: relative;
-            overflow: auto;
-            height: 100%;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 網頁標題 -->
         <div class="header">平時表現登記表</div>
 
-        <!-- 上部分：操作區域 -->
         <div class="top-section">
             <div class="button-container" id="item-buttons">
-                <!-- 20項目按鈕 -->
-                <button class="button gray-btn" onclick="setCurrentItem(0)">尊師重道</button>
-                <button class="button gray-btn" onclick="setCurrentItem(1)">體貼助人</button>
-                <button class="button gray-btn" onclick="setCurrentItem(2)">慈悲護生</button>
-                <button class="button gray-btn" onclick="setCurrentItem(3)">言行有禮</button>
-                <button class="button gray-btn" onclick="setCurrentItem(4)">見賢思齊</button>
-                <button class="button gray-btn" onclick="setCurrentItem(5)">內省改過</button>
-                <button class="button gray-btn" onclick="setCurrentItem(6)">個人整潔</button>
-                <button class="button gray-btn" onclick="setCurrentItem(7)">認真打掃</button>
-                <button class="button gray-btn" onclick="setCurrentItem(8)">熱心服務</button>
-                <button class="button gray-btn" onclick="setCurrentItem(9)">準時排隊</button>
-                <button class="button gray-btn" onclick="setCurrentItem(10)">惜福愛物</button>
-                <button class="button gray-btn" onclick="setCurrentItem(11)">舉手發言</button>
-                <button class="button gray-btn" onclick="setCurrentItem(12)">課前準備</button>
-                <button class="button gray-btn" onclick="setCurrentItem(13)">課堂發表</button>
-                <button class="button gray-btn" onclick="setCurrentItem(14)">誠實</button>
-                <button class="button gray-btn" onclick="setCurrentItem(15)">勇氣</button>
-                <button class="button gray-btn" onclick="setCurrentItem(16)">負責</button>
-                <button class="button gray-btn" onclick="setCurrentItem(17)">合作</button>
-                <button class="button gray-btn" onclick="setCurrentItem(18)">其他1</button>
-                <button class="button gray-btn" onclick="setCurrentItem(19)">其他2</button>
+                <!-- 20可編輯項目 -->
+                <input type="text" class="editable-button gray-btn" value="尊師重道" oninput="updateItemName(0)" onclick="setCurrentItem(0)" />
+                <input type="text" class="editable-button gray-btn" value="體貼助人" oninput="updateItemName(1)" onclick="setCurrentItem(1)" />
+                <input type="text" class="editable-button gray-btn" value="慈悲護生" oninput="updateItemName(2)" onclick="setCurrentItem(2)" />
+                <input type="text" class="editable-button gray-btn" value="言行有禮" oninput="updateItemName(3)" onclick="setCurrentItem(3)" />
+                <input type="text" class="editable-button gray-btn" value="見賢思齊" oninput="updateItemName(4)" onclick="setCurrentItem(4)" />
+                <input type="text" class="editable-button gray-btn" value="內省改過" oninput="updateItemName(5)" onclick="setCurrentItem(5)" />
+                <input type="text" class="editable-button gray-btn" value="個人整潔" oninput="updateItemName(6)" onclick="setCurrentItem(6)" />
+                <input type="text" class="editable-button gray-btn" value="認真打掃" oninput="updateItemName(7)" onclick="setCurrentItem(7)" />
+                <input type="text" class="editable-button gray-btn" value="熱心服務" oninput="updateItemName(8)" onclick="setCurrentItem(8)" />
+                <input type="text" class="editable-button gray-btn" value="準時排隊" oninput="updateItemName(9)" onclick="setCurrentItem(9)" />
+                <input type="text" class="editable-button gray-btn" value="惜福愛物" oninput="updateItemName(10)" onclick="setCurrentItem(10)" />
+                <input type="text" class="editable-button gray-btn" value="舉手發言" oninput="updateItemName(11)" onclick="setCurrentItem(11)" />
+                <input type="text" class="editable-button gray-btn" value="課前準備" oninput="updateItemName(12)" onclick="setCurrentItem(12)" />
+                <input type="text" class="editable-button gray-btn" value="課堂發表" oninput="updateItemName(13)" onclick="setCurrentItem(13)" />
+                <input type="text" class="editable-button gray-btn" value="誠實" oninput="updateItemName(14)" onclick="setCurrentItem(14)" />
+                <input type="text" class="editable-button gray-btn" value="勇氣" oninput="updateItemName(15)" onclick="setCurrentItem(15)" />
+                <input type="text" class="editable-button gray-btn" value="負責" oninput="updateItemName(16)" onclick="setCurrentItem(16)" />
+                <input type="text" class="editable-button gray-btn" value="合作" oninput="updateItemName(17)" onclick="setCurrentItem(17)" />
+                <input type="text" class="editable-button gray-btn" value="其他1" oninput="updateItemName(18)" onclick="setCurrentItem(18)" />
+                <input type="text" class="editable-button gray-btn" value="其他2" oninput="updateItemName(19)" onclick="setCurrentItem(19)" />
             </div>
+
             <div class="button-container">
-                <!-- 35個座號按鈕 -->
                 <div id="seat-buttons">
-                    <!-- 按鈕生成 -->
+                    <!-- 35個座號按鈕 -->
                 </div>
             </div>
+            <button class="download-btn" onclick="downloadExcel()">下載 Excel</button>
         </div>
-        
-        <!-- 下部分：顯示區域 -->
+
         <div class="bottom-section">
             <div class="table-container">
                 <table>
                     <thead class="sticky-header">
                         <tr>
                             <th>座號</th>
-                            <!-- 頭部列顯示20項目 -->
-                            <th colspan="20">
-                                加扣分項目
-                                <button class="download-btn" onclick="downloadExcel()">下載數據</button>
-                                <span class="date-display" id="current-date"></span>
-                            </th>
+                            <th colspan="20">加扣分項目</th>
                             <th>總計</th>
                         </tr>
-                        <tr>
+                        <tr id="item-names-row">
                             <th>座號</th>
-                            <!-- 顯示20項目標題 -->
                             <th>尊師重道</th>
                             <th>體貼助人</th>
                             <th>慈悲護生</th>
@@ -198,120 +175,114 @@
                             <th>總計</th>
                         </tr>
                     </thead>
-                    <tbody id="student-scores">
-                        <!-- 用於顯示學生數據的行 -->
-                    </tbody>
+                    <tbody id="student-scores"></tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script>
         const numStudents = 35;
         const numItems = 20;
         let currentItem = -1;
         const scores = Array.from({ length: numStudents }, () => Array(numItems).fill(null));
+        const itemNames = Array.from(document.querySelectorAll('#item-buttons input')).map(input => input.value);
         const seatButtons = [];
 
-        // 生成座號按鈕
         const seatButtonsContainer = document.getElementById('seat-buttons');
         for (let i = 1; i <= numStudents; i++) {
             const button = document.createElement('button');
             button.textContent = i;
             button.className = 'seat-btn gray-btn';
-            button.onclick = () => updateScore(i, currentItem);
-            seatButtons.push(button);
+            button.addEventListener('click', () => updateScore(i, currentItem));
             seatButtonsContainer.appendChild(button);
+            seatButtons.push(button);
         }
 
-        function setCurrentItem(itemId) {
-            const buttons = document.querySelectorAll('#item-buttons .button');
-            const selectedButton = buttons[itemId];
+        function setCurrentItem(index) {
+            currentItem = index;
+            const currentButton = document.querySelectorAll('#item-buttons input')[index];
             
-            // 切換按鈕顏色：綠色 -> 紅色 -> 灰色
-            if (selectedButton.classList.contains('gray-btn')) {
-                selectedButton.className = 'button green-btn'; // 設置為綠色
-                currentItem = itemId;
-                updateSeatButtons('green-btn');
-            } else if (selectedButton.classList.contains('green-btn')) {
-                selectedButton.className = 'button red-btn'; // 設置為紅色
-                currentItem = itemId;
-                updateSeatButtons('red-btn');
-            } else if (selectedButton.classList.contains('red-btn')) {
-                selectedButton.className = 'button gray-btn'; // 設置為灰色
-                currentItem = -1;
-                updateSeatButtons('gray-btn');
+            // 切換按鈕顏色
+            if (currentButton.classList.contains('gray-btn')) {
+                currentButton.classList.remove('gray-btn');
+                currentButton.classList.add('green-btn');
+            } else if (currentButton.classList.contains('green-btn')) {
+                currentButton.classList.remove('green-btn');
+                currentButton.classList.add('red-btn');
+            } else if (currentButton.classList.contains('red-btn')) {
+                currentButton.classList.remove('red-btn');
+                currentButton.classList.add('gray-btn');
             }
-        }
 
-        function updateSeatButtons(colorClass) {
+            // 重置座號按鈕顏色
             seatButtons.forEach(button => {
-                if (colorClass === 'green-btn') {
-                    button.className = 'seat-btn green-btn';
-                } else if (colorClass === 'red-btn') {
-                    button.className = 'seat-btn red-btn';
-                } else {
-                    button.className = 'seat-btn gray-btn';
-                }
+                button.className = 'seat-btn gray-btn';
             });
         }
 
-        function updateScore(studentId, itemId) {
-            if (itemId === -1) return;
-
-            const seatButton = seatButtons[studentId - 1];
-            const currentItemClass = document.querySelectorAll('#item-buttons .button')[itemId].className;
-
-            let change = 0;
-            if (currentItemClass.includes('green-btn')) {
-                change = 1;
-                seatButton.className = 'seat-btn green-btn';
-            } else if (currentItemClass.includes('red-btn')) {
-                change = -1;
-                seatButton.className = 'seat-btn red-btn';
-            } else {
-                return;
-            }
-
-            scores[studentId - 1][itemId] = (scores[studentId - 1][itemId] || 0) + change;
-            updateSummary();
+        function updateItemName(itemId) {
+            const itemNamesRow = document.getElementById('item-names-row');
+            const currentInput = document.querySelectorAll('#item-buttons input')[itemId];
+            itemNames[itemId] = currentInput.value;
+            itemNamesRow.children[itemId + 1].textContent = currentInput.value;
         }
 
-        function updateSummary() {
-            const studentScoresContainer = document.getElementById('student-scores');
-            studentScoresContainer.innerHTML = '';
+        function updateScore(seatNumber, itemId) {
+            if (itemId === -1) return;
 
-            for (let i = 1; i <= numStudents; i++) {
-                const row = document.createElement('tr');
-                const totalScore = scores[i - 1].reduce((sum, score) => sum + (score || 0), 0);
-                row.innerHTML = `<td>${i}</td>${scores[i - 1].map(score => score !== null ? `<td>${score}</td>` : `<td></td>`).join('')}<td>${totalScore}</td>`;
-                studentScoresContainer.appendChild(row);
+            const seatIndex = seatNumber - 1;
+            const currentItemButton = document.querySelectorAll('#item-buttons input')[itemId];
+
+            if (currentItemButton.classList.contains('green-btn')) {
+                scores[seatIndex][itemId] = (scores[seatIndex][itemId] || 0) + 1;
+                seatButtons[seatIndex].className = 'seat-btn green-btn';
+            } else if (currentItemButton.classList.contains('red-btn')) {
+                scores[seatIndex][itemId] = (scores[seatIndex][itemId] || 0) - 1;
+                seatButtons[seatIndex].className = 'seat-btn red-btn';
             }
+
+            renderScores();
+        }
+
+        function renderScores() {
+            const tbody = document.getElementById('student-scores');
+            tbody.innerHTML = '';
+            
+            scores.forEach((studentScores, index) => {
+                const tr = document.createElement('tr');
+                let totalScore = 0;
+
+                tr.appendChild(createCell(index + 1));
+                studentScores.forEach(score => {
+                    totalScore += score || 0;
+                    tr.appendChild(createCell(score));
+                });
+
+                tr.appendChild(createCell(totalScore));
+                tbody.appendChild(tr);
+            });
+        }
+
+        function createCell(content) {
+            const td = document.createElement('td');
+            td.textContent = content !== null ? content : '-';
+            return td;
         }
 
         function downloadExcel() {
-            const wb = XLSX.utils.book_new();
-            const ws_data = [
-                ["座號", "尊師重道", "體貼助人", "慈悲護生", "言行有禮", "見賢思齊", "內省改過", "個人整潔", "認真打掃", "熱心服務", "準時排隊", "惜福愛物", "舉手發言", "課前準備", "課堂發表", "誠實", "勇氣", "負責", "合作", "其他1", "其他2", "總計"]
-            ];
-            for (let i = 0; i < numStudents; i++) {
-                const totalScore = scores[i].reduce((sum, score) => sum + (score || 0), 0);
-                ws_data.push([i + 1, ...scores[i], totalScore]);
-            }
-            const ws = XLSX.utils.aoa_to_sheet(ws_data);
-            XLSX.utils.book_append_sheet(wb, ws, "學生分數");
-
-            const now = new Date();
-            const dateStr = now.toLocaleString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).replace(/\//g, '-').replace(/\s/g, '_').replace(/:/g, '');
-            XLSX.writeFile(wb, `學生分數_${dateStr}.xlsx`);
-
-            // 更新按鈕旁的日期時間
-            document.getElementById('current-date').textContent = dateStr;
+            const table = document.querySelector('table');
+            const wb = XLSX.utils.table_to_book(table);
+            const today = new Date();
+            const dateString = today.toISOString().split('T')[0]; // 取得日期（YYYY-MM-DD格式）
+            XLSX.writeFile(wb, `學生表現登記表_${dateString}.xlsx`); // 加上日期到檔名
         }
 
-        // 初始顯示
-        updateSummary();
+        // 初始渲染表格
+        renderScores();
     </script>
+
+    <!-- 需要引入 XLSX 來支持下載 Excel 文件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </body>
 </html>
